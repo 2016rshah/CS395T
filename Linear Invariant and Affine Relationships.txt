@@ -1,0 +1,19 @@
+Linear invariant generation with non-linear constraint solving
+
+	Basically generate invariants by showing inductiveness (it holds the first time and each subsequent time). Method is complete and sound (!!!), but turns linear problem (???) into a non-linear constraint solving problem. Solving non-linear constraints can only be done in small to medium cases which is why this isn't too good to be true. Applied to "transition systems" which are basically descriptions of programs that include 
+
+	"A transition system P : ⟨V, L, l0, Θ, T ⟩ consists of a set of variables V , a set of locations L, an initial location l0, an initial assertion Θ over the variables V , and a set of transitions T . Each transition τ ∈ T is a tuple ⟨l,l′,ρτ⟩, where l,l′ ∈ L are the pre and post locations, and ρτ is the transition relation, an assertion over V ∪V ′, where V represents current-state variables and its primed version V ′ represents the next-state variables."
+
+	Something about cutsets, cutpoints that I did not understand
+	Something about linear algebra I definitely don't understand
+
+	The paragraphs above section four explain why this approach isn't the end-all-be-all
+
+	Invariants can be generated for merge sort but indirectly because arrays can't be represented as transition systems or something. Also takes adding a parameter to show that l >= 1 makes it generate the correct invariants
+
+	Invariants can be generated for a robot movement and prove the robot can never get to 9,12 which is pretty neat
+
+
+Affine Relationships Among Variables of a Program
+
+	Optimizations can be performed when there is some affine (linear combination plus a constant) relationship between variables. For example, nested loops where the bounds of the inner loop is a function of the bound of the outer loop
