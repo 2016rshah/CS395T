@@ -1,0 +1,38 @@
+Liquid type variables - the unknown refinements you will give to the liquid types (k_1, k_2, etc.)
+
+Generate constraints on those types
+	scope constraints (scope = environment)
+		can't constrain with variables that don't exist
+	value flow constraints
+		sum example
+
+Solving constraints
+	Start with everything in Q for all k
+	Throw away things in Q if they are unsatisfiable
+		Scope constraints can throw things away if the variables in the constraint don't match (length * can't work if all the variables in environment are integers)
+	Value flow constraints
+		Env |- { V : t | P_1 } <: { V : t | P_2 }
+		is valid if
+		(Env ^ P_1) -> P_2
+
+		Use the theorem prover to see if q in Q holds. If not, throw it out
+
+		(this is predicate abstraction)
+
+	So for example:
+
+	k1 |-> 0 <= v
+	n : k1, !n < 0, |- V = n - 1 <: k1 
+
+	0 <= n ^ !n <0 ^ v = n - 1 -> 0 <= v CANNOT BE PROVEN, IS UNSAT so k1 must be thrown out
+
+Why bother with this whole subtyping business?
+	T1 -> T2 <: T1' -> T2' 
+	iff
+	T1 <: T1' and T2 <: T2'
+
+	which you need fancy types to get
+
+Scopes save us because they make it very finite
+
+Types are kind of a heuristic for quantifier instantantition/generalization

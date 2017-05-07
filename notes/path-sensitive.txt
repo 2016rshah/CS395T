@@ -1,0 +1,37 @@
+Πα,true = ∃β.(α = true)∧(β = ′y′∨(¬(β = ′n′)∧Πα,true[true/α]))
+
+This constraint gives all the conditions that will make the function return true even if function is recursive
+
+There's no really clear way to solve this recursive constraint because recursion is unbounded 
+
+But we don't need all the conditions for true and all the conditions for false
+
+All we need is may/must conditions: does there exist conditions in which it will return true and MUST the function return true
+
+This can be significantly easier to solve -> sound and complete
+
+There are a lot of intermediate computations that take place to figure out what is returned. But at the end of the day we don't really care about them, we only care about the "observable" variables. 
+
+By distinguishing between unobservable variables we can separate what is essential to path-sensitive analysis
+
+
+
+Weakest sufficient condition -> WSC
+	VALID(WSC(q)) then q MUST be true
+	floor
+
+Strongest necessary condition -> SNC
+	SATISFIABLE(SNC(Q)) then q MAY 
+	ceiling
+
+integer linear quantifier elimination 
+
+Can't just push a negation into a WSC or SNC because they are under/over approximation and pushing the negation through with make it an opposite approximation 
+
+Make it monotonic
+	NNF - negation normal form (push all the negations through as far as they can go)
+	Replace all the remaining negations with disjunctions (we can do this because we have finite space)
+
+Insight: negatives make the approximations opposite. Paper will instead just remove all the negatives
+	Better insight: negative of sufficient is necessary and negative of necessary is sufficient (didn't do it because proof of this statement is hard)
+

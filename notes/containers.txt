@@ -1,0 +1,17 @@
+Precise Reasoning for Programs Using Containers
+
+Containers can be either position dependent or value dependent
+
+Key insight is that you can add a level of abstraction to treat the position and value dependent containers in the same way. 
+
+	key -> abstract index -> value at index
+
+		Position dependent:
+			position -> index (position) -> value
+		Value dependent:
+			value -> index (based on "uninterpreted function") -> value
+
+	uninterpreted function is not explained, but may be in later parts of paper. 
+
+Bracketing constraint:
+	<may, must> lets us negate !<may, must> => <!may, !must>
